@@ -1,4 +1,40 @@
 .Rproj.user
 .Rhistory
+.Rapp.history
 .RData
 .Ruserdata
+.here
+
+# RData files
+*.RData
+
+# csv files
+*.csv
+
+# html files
+*.html
+
+# temporary files created by R markdown
+*.utf8.md
+*.knit.md
+
+# knitr and R markdown default cache directories
+*_cache/
+/cache/
+
+# pdfs
+*.pdf
+*.PDF
+
+# figs folder
+figs/
+*.PNG
+*.png
+*.JPEG
+*.jpeg
+*.JPG
+*.jpg
+
+# folders (some of them with data, plz uncomment after download)
+#documents
+#data
