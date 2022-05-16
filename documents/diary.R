@@ -1,0 +1,1 @@
+# This is the diary that could be used to document the project development

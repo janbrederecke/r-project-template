@@ -1,0 +1,42 @@
+---
+title: "YOURTITLE"
+date: "`r Sys.Date()`"
+author: "YOURNAME"
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
+    code_folding: hide
+  pdf_document:
+    toc: yes
+editor_options: 
+  chunk_output_type: console
+bibliography: bibliography.bib  
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, echo=TRUE, warning=FALSE, message=FALSE}
+# Loading R packages 
+library(here)
+
+# Loading the data
+file <- paste0(here(), "/data/cleaned/YOURDATA.RData")
+load(file)
+rm(file)
+```
+
+
+
+
+# Session information
+
+This file was created on `r date()` with `r R.Version()$version.string`. 
+```{r}
+
+sessionInfo()
+```
+
+# References
