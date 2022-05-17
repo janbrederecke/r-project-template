@@ -22,6 +22,7 @@ begin_time <- Sys.time()
 
 # Loading R packages 
 library(here)
+library(prepareD)
 
 # Reading annotation file 
 documents_folder <- paste0(here(),"/documents/annotation/")
@@ -29,9 +30,6 @@ annotation <- read.csv(paste0(documents_folder, "/annotation.csv"),
                               stringsAsFactors = FALSE)
 annotation[[1]] <- tolower(annotation[[1]]) 
 rownames(annotation) <- annotation[[1]]
-
-# Loading functions
-source(here("R/01-data-processing/00_functions.R"))
 ```
 
 # Step 1: Loading data
@@ -44,7 +42,6 @@ data <-
     stringsAsFactors = FALSE,
     data.table = FALSE
   )
-
 ```
 
 
