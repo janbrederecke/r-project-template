@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = TRUE)
 # Step 0: Loading packages and annotation file
 ```{r}
 # Recording time 
-begin_time <- Sys.time()
+prepareD::time_start()
 
 # Loading R packages 
 library(here)
@@ -30,7 +30,7 @@ annotation <- read.csv(paste0(documents_folder, "/annotation.csv"),
 annotation[[1]] <- tolower(annotation[[1]]) 
 rownames(annotation) <- annotation[[1]]
 
-# Loading functions
+# Loading additional functions not available in packages
 source(here("R/01-data-processing/00_functions.R"))
 ```
 
@@ -54,35 +54,24 @@ data <-
 ```{r}
 
 # Time it took to perform the computations 
-end_time <- Sys.time()
-time_it_took <- end_time - begin_time
 date_saved <- end_time
 system_info <- Sys.info()  
-session_info <- sessionInfo()
 
 # Saving results
 to_save <- c("data",
              "annotation")
 file <- paste0(here(), "/data/cleaned/read_data.RData")
-to_save <- c(to_save,
-             "time_it_took",
-             "date_saved",
-             "system_info",
-             "session_info")
 save(list = to_save,
      file = file)
 ```
 
 # R session information
+This file was created on `r date()` with `r R.Version()$version.string`. 
 ```{r}
-
-x <- as.numeric(unclass(time_it_took))
-unit <- attr(time_it_took, "units")
+time_stop()
 ```
-
-It took `r round_n.ade(x, 2)` `r unit` for all analyses to run.
-```{r, comment="", results='markup'}
-
+It took `r time_it_took` for all analyses to run.
+```{r}
 sessionInfo()
 rm(list = ls())
 ```
