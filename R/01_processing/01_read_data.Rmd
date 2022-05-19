@@ -30,12 +30,9 @@ annotation <- read.csv(paste0(documents_folder, "/annotation.csv"),
                               stringsAsFactors = FALSE)
 annotation[[1]] <- tolower(annotation[[1]]) 
 rownames(annotation) <- annotation[[1]]
-<<<<<<< HEAD
 
 # Loading additional functions not available in packages
 source(here("R/01-data-processing/00_functions.R"))
-=======
->>>>>>> ba97b4a0c3645498433194ee27f05d5adaf346a1
 ```
 
 # Step 1: Loading data
@@ -55,15 +52,15 @@ data <-
 
 # Saving processed data
 ```{r}
-
-# Time it took to perform the computations 
-date_saved <- end_time
+# System info
 system_info <- Sys.info()  
 
 # Saving results
-to_save <- c("data",
-             "annotation")
+to_save <- c("data"
+             , "annotation")
 file <- paste0(here(), "/data/cleaned/read_data.RData")
+to_save <- c(to_save
+             , system_info)
 save(list = to_save,
      file = file)
 ```
@@ -73,6 +70,7 @@ This file was created on `r date()` with `r R.Version()$version.string`.
 ```{r}
 time_stop()
 ```
+
 It took `r time_it_took` for all analyses to run.
 ```{r}
 sessionInfo()
