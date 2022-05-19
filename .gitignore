@@ -4,6 +4,7 @@
 .RData
 .Ruserdata
 .here
+.DS_Store
 
 # RData files
 *.RData
