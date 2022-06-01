@@ -43,6 +43,7 @@ data <-
   data.table::fread(
     paste0(data_folder, "YOURDATA.csv"),
     stringsAsFactors = FALSE,
+    check.names = TRUE,
     data.table = FALSE
   )
 ```
